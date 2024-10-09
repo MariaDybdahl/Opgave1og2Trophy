@@ -23,57 +23,65 @@ namespace Opgave1og2Trophy
             IEnumerable<Trophy> result = Trophies.Select(t => new Trophy(t)).ToList();
 
             //Filtering
+            //hvis yearAfter ikke er null
             if (yearAfter != null)
             {
+                // Filtrer resultaterne for at få trofæer med årstal større end yearAfter hvor vi bruger et lambda-udtryk 
                 result = result.Where(m => m.Year > yearAfter);
             }
+            //yearBefore ikke er null
             if (yearBefore != null)
             {
+                // Filtrer resultaterne for at få trofæer med årstal mindre end yearBefore hvor vi bruger et lambda-udtryk 
                 result = result.Where(m => m.Year < yearBefore);
             }
 
 
 
             //Sorting
+            //Hvis orderBy ikke er null
             if (orderBy != null)
-            {
+            {// fall through to next case
+                //Sætter orderby til lowercase
                 orderBy = orderBy.ToLower();
+                //Laver en swich case for orderBy
                 switch (orderBy)
                 {
-                    case "competition": // fall through to next case
+                    // Hvis "orderBy" er "competition" eller "competition_asc", sorter stigende efter "Competition"
+                    case "competition": 
                     case "competition_asc":
                         result = result.OrderBy(m => m.Competition);
                         break;
+
+                    // Hvis "orderBy" er "competition_desc", sorter faldende efter "Competition"
                     case "competition_desc":
                         result = result.OrderByDescending(m => m.Competition);
                         break;
+                    // Hvis "orderBy" er "year" eller "year_asc", sorter stigende efter "Year"
                     case "year":
                     case "year_asc":
                         result = result.OrderBy(m => m.Year);
                         break;
+                    // Hvis "orderBy" er "year_desc", sorter faldende efter "Year"
                     case "year_desc":
                         result = result.OrderByDescending(m => m.Year);
                         break;
                     default:
-                        break; // do nothing
+                        break; //Æaver et break så den stopper hvis den ikke rammer noget
                 }
 
 
             }
+            //Returner en list af Tropy obejkt  med det som macther.
             return result;
 
         }
 
 
         public Trophy GetTrophyById(int id)
-        {
-           
-           if (id != null)
-            { 
+        { 
                 //returnerer det første objekt i listen, som har det samme id som det angivne id.
                 return Trophies.FirstOrDefault(t => t.Id == id);
-            }
-            return null;
         }
 
 
@@ -85,7 +93,7 @@ namespace Opgave1og2Trophy
             _nextId++; 
             //Tilføjer et Trophy objekt til listen.
             Trophies.Add(trophy);
-            //Returnerer det nye Trophy objekt.
+            //Returnerer det nye Trophy objekt som er tilføjt.
             return trophy;
         }
         public Trophy RemoveTrophy(int id) 
@@ -106,9 +114,10 @@ namespace Opgave1og2Trophy
         {
             
             values.Validate();
+            
             //Finder det første objekt i listen, som har det samme id som det angivne id.
             Trophy trophy = Trophies.FirstOrDefault(t => t.Id == id);
-             //hvis det nyt value og det gamle trophy obejkt ikke er null.
+             //hvis det nyt value og det gamle trophy obejkt ikke er null, og listen ikke er null, da hvis n.
             if (trophy != null && values!=null)
             {  
                 //Opdaterer objektet med værdierne fra det angivne Trophy objekt.
@@ -118,7 +127,7 @@ namespace Opgave1og2Trophy
                 return trophy;
             }
            
-     
+     //returner null hvis den ikke gå igennem
             return null;
         }
     }
