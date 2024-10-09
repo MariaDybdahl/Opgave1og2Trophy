@@ -59,7 +59,6 @@ namespace Opgave1og2Trophy
            if ((Year < 1970 ) || (Year > 2024))
             {
                 throw new ArgumentOutOfRangeException("Året skal være mellem 1970 til 2024");
-                //Overveje om det er ArgumentOutOfRangeException
             }
 
         }

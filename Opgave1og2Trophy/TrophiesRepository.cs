@@ -90,35 +90,35 @@ namespace Opgave1og2Trophy
         }
         public Trophy RemoveTrophy(int id) 
         {
-            if (id != null)
-            { 
-            //Fjerner det første objekt i listen, som har det samme id som det angivne id.
+            
+            //Finder det første objekt i listen, som har det samme id som det angivne id.
             Trophy trophy = Trophies.FirstOrDefault(t => t.Id == id);
+                //Hvis den ikke er null vil den gå ind og fjerne obejktet fra listen.
             if (trophy != null)
             {
                 Trophies.Remove(trophy);
+                return trophy;
             }
-            return trophy;
-            }
+            
             return null;
         }
         public Trophy UpdateTrophy(int id, Trophy values)
         {
             
             values.Validate();
-            //Fjerner det første objekt i listen, som har det samme id som det angivne id.
+            //Finder det første objekt i listen, som har det samme id som det angivne id.
             Trophy trophy = Trophies.FirstOrDefault(t => t.Id == id);
-             
+             //hvis det nyt value og det gamle trophy obejkt ikke er null.
             if (trophy != null && values!=null)
-            {
-               
+            {  
                 //Opdaterer objektet med værdierne fra det angivne Trophy objekt.
                 trophy.Competition = values.Competition;
                 trophy.Year = values.Year; 
+                //return obejkt
                 return trophy;
             }
            
-            
+     
             return null;
         }
     }
