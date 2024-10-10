@@ -9,13 +9,13 @@ namespace Unit_Test
         Trophy trophyCompetitionNull = new Trophy(2, null, 2013);
         Trophy trophyCompetitionLessThen3 = new Trophy(3, "Gå", 2012);
         Trophy trophyCompetition3 = new Trophy(4, "Går", 2015);
-        Trophy trophyCompetition4 = new Trophy(4, "Går3", 2015);
-        Trophy trophyYearLess1970 = new Trophy(5, "Løbning", 1940);
-        Trophy trophyYear1970 = new Trophy(6, "Svømming", 1970);
-        Trophy trophyYearAfter2024 = new Trophy(7, "Løbning", 2025);
-        Trophy trophyYear2024 = new Trophy(8, "Går", 2024);
-        private Trophy trophyYear1971 = new Trophy(9, "JJJ", 1971);
-        private Trophy trophyYear2023 = new Trophy(10, "dddd", 2023);
+        Trophy trophyCompetition4 = new Trophy(5, "Går3", 2015);
+        Trophy trophyYearLess1970 = new Trophy(6, "Løbning", 1940);
+        Trophy trophyYear1970 = new Trophy(7, "Svømming", 1970);
+        Trophy trophyYearAfter2024 = new Trophy(8, "Løbning", 2025);
+        Trophy trophyYear2024 = new Trophy(9, "Går", 2024);
+        private Trophy trophyYear1971 = new Trophy(10, "JJJ", 1971);
+        private Trophy trophyYear2023 = new Trophy(11, "dddd", 2023);
 
         [TestMethod]
         public void ToStringTest()
